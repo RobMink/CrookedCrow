@@ -26,11 +26,11 @@ class quad_gantry_tilt:
         self.z_helper = z_tilt.ZAdjustHelper(config, 4)
         gcode = self.printer.lookup_object('gcode')
         gcode.register_command('SET_GANTRY_TILT', self.cmd_SET_GANTRY_TILT, desc=self.cmd_SET_GANTRY_TILT_help)
-        gcode.register_command('GET_ANGLE', self.cmd_GET_GANTRY_ANGLE, desc=self.cmd_GET_ANGLE_help)
+        gcode.register_command('GET_GANTRY_ANGLE', self.cmd_GET_GANTRY_ANGLE, desc=self.cmd_GET_GANTRY_ANGLE_help)
 
     cmd_SET_GANTRY_TILT_help = "Adjust the angle of the gantry"
-    cmd_GET_ANGLE_help = "Returns the current gantry angle"
-    
+    cmd_GET_GANTRY_ANGLE_help = "Returns the current gantry angle"
+
     def handle_connect(self):
         kin = self.printer.lookup_object('toolhead').get_kinematics()
         z_steppers = [s for s in kin.get_steppers() if s.is_active_axis('z')]
