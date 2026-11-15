@@ -41,7 +41,7 @@ class quad_gantry_tilt:
         self.gangle = 0.0
         self.current_offset = float(0.0 - (self.rearBH + self.frontBH))
 
-    def cmd_GET_ANGLE(self, gcmd):
+    def cmd_GET_GANTRY_ANGLE(self, gcmd):
         degrees = math.degrees(self.gangle)
         gcmd.respond_info("Current Gantry Angle: %.2f degrees (%.4f radians)" % (degrees, self.gangle))
         return float(self.gangle)
